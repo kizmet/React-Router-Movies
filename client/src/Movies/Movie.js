@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink, Route } from 'react-router-dom';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 
@@ -26,7 +27,7 @@ export default class Movie extends Component {
         console.error(error);
       });
   };
-  // Uncomment this code when you're ready for the stretch problems
+//  Uncomment this code when you're ready for the stretch problems
   // componentWillReceiveProps(newProps) {
   //   if (this.props.match.params.id !== newProps.match.params.id) {
   //     this.fetchMovie(newProps.match.params.id);
@@ -47,9 +48,9 @@ export default class Movie extends Component {
     return (
       <div className="save-wrapper">
         <MovieCard movie={movie} />
-        <div className="save-button" onClick={() => this.saveMovie()}>
-          Save
-        </div>
+        <div className="save-button" onClick={() => this.saveMovie()}>Save</div>
+        <NavLink to="/" className="x-home">X</NavLink>
+
       </div>
     );
   }
