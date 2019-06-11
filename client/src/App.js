@@ -10,16 +10,15 @@ export default class App extends Component {
     super();
     this.state = {
       savedList: [],
-      movieInList: null
+      movies: null
     };
   }
 
   addToSavedList = movie => {
     const savedList = this.state.savedList;
-    const findMovie = savedList.find(el => movie.id === el.id);
+    const findMovie = savedList.find(a => movie.id === a.id);
     if (findMovie) {
-      this.setState({ movieInList: `You've already saved that movie!` });
-      setTimeout(() => this.setState({ movieInList: null }), 2000);
+        return
     } else {
       savedList.push(movie);
     }
@@ -28,12 +27,9 @@ export default class App extends Component {
   };
 
   render() {
-    const { movieInList } = this.state;
+    const { movies } = this.state;
     return (
       <div>
-        {movieInList !== null ? (
-          <h3 className="movie-warning">{movieInList}</h3>
-        ) : null}
         <SavedList list={this.state.savedList} />
         <Route exact path="/" component={MovieList} />
         <Route path="/movies/:id"
