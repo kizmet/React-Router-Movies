@@ -10,14 +10,15 @@ export default class App extends Component {
     super();
     this.state = {
       savedList: [],
+      filteredList:[],
       movies: null
     };
   }
 
   addToSavedList = movie => {
     const savedList = this.state.savedList;
-    const findMovie = savedList.find(a => movie.id === a.id);
-    if (findMovie) {
+    const existMovie = savedList.find(a => movie.id === a.id);
+    if (existMovie) {
         return
     } else {
       savedList.push(movie);
@@ -25,6 +26,8 @@ export default class App extends Component {
 
     this.setState({ savedList });
   };
+
+
 
   render() {
     const { movies } = this.state;
@@ -36,6 +39,7 @@ export default class App extends Component {
           render={props => (
             <Movie {...props} 
             addToSavedList={this.addToSavedList} 
+
             />
           )}
         />
