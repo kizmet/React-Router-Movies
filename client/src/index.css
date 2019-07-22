@@ -59,8 +59,21 @@ body {
   position: relative;
   width: 75%;
   margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
 }
 .save-button {
+/*  position: absolute;*/
+  float:left;
+  align-self: center;
+  justify-content: center;
+  width: 50px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.next-button {
 /*  position: absolute;*/
   float:left;
   align-self: center;
