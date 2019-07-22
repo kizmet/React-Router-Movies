@@ -9,8 +9,9 @@ const App = () => {
   const [savedList, setSavedList] = useState([]);
 
   const addToSavedList = movie => {
-    console.log(movie.id)
-    setSavedList([...savedList, movie]);
+    setSavedList([...savedList, movie])
+    const idList = savedList.map(savedList => savedList.id)
+    idList.includes(movie.id) ?  setSavedList([...savedList]) : setSavedList([...savedList, movie])
   };
 
   return (
