@@ -4,7 +4,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import { NavLink, Route, Link } from "react-router-dom";
 
-const Movie = (props) => {
+const Movie = props => {
   const [movie, setMovie] = useState();
   const [id, setId] = useState(props.match.params.id);
   const [nextId, setNextId] = useState();
@@ -70,11 +70,11 @@ const Movie = (props) => {
               {star}
             </div>
           ))}
-                <Link to={`/`}>
-        <div className="save-button" onClick={saveMovie}>
-          Save
-        </div>
-      </Link>
+          <Link to={`/`}>
+            <div className="save-button" onClick={saveMovie}>
+              Save
+            </div>
+          </Link>
         </div>
         <Link to={`/movies/${nextId}`}>
           <div className="next-button" onClick={nextMovie}>
@@ -82,7 +82,6 @@ const Movie = (props) => {
           </div>
         </Link>
       </div>
-
     </div>
   );
 };
